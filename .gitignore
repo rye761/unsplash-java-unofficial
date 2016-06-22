@@ -1,0 +1,13 @@
+*.class
+
+bin/
+gen/
+
+.classpath
+.project
+
+.gradle
+build/
+
+.nb-gradle/
+.settings/
