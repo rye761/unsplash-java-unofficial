@@ -25,4 +25,9 @@ public class Photo {
         return GSON.fromJson(data, Photo[].class);
     }
     
+    public static Photo[] curated() {
+        final String data = INSTANCE.request(Verb.GET, "photos/curated");
+        return GSON.fromJson(data, Photo[].class);
+    }
+    
 }
