@@ -3,6 +3,7 @@ package com.github.rye761.unsplash;
 import com.github.scribejava.core.model.Verb;
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
+import java.util.Map;
 
 public class Photo {
     private static final Unsplash INSTANCE = Unsplash.getInstance();
@@ -28,6 +29,15 @@ public class Photo {
     public static Photo[] curated() {
         final String data = INSTANCE.request(Verb.GET, "photos/curated");
         return GSON.fromJson(data, Photo[].class);
+    }
+    
+    public static Photo find(String id, Map<String, String> params) {
+        final String data = INSTANCE.request(Verb.GET, "photos/" + id, params);
+        return GSON.fromJson(data, Photo.class);
+    }
+    
+    public static Photo find(String id) {
+        return find(id, null);
     }
     
 }

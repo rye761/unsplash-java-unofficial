@@ -6,4 +6,5 @@ public class Url {
     public String regular;
     public String small;
     public String thumb;
+    public String custom;
 }
