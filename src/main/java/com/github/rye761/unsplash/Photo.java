@@ -21,14 +21,22 @@ public class Photo {
     public Url urls;
     public Link links;
     
+    public static Photo[] all(Map<String, String> params) {
+        final String data = INSTANCE.request(Verb.GET, "photos", params);
+        return GSON.fromJson(data, Photo[].class);
+    }
+    
     public static Photo[] all() {
-        final String data = INSTANCE.request(Verb.GET, "photos");
+        return all(null);
+    }
+    
+    public static Photo[] curated(Map<String, String> params) {
+        final String data = INSTANCE.request(Verb.GET, "photos/curated", params);
         return GSON.fromJson(data, Photo[].class);
     }
     
     public static Photo[] curated() {
-        final String data = INSTANCE.request(Verb.GET, "photos/curated");
-        return GSON.fromJson(data, Photo[].class);
+        return curated(null);
     }
     
     public static Photo find(String id, Map<String, String> params) {
@@ -38,6 +46,29 @@ public class Photo {
     
     public static Photo find(String id) {
         return find(id, null);
+    }
+    
+    public Photo find() {
+        return find(this.id);
+    }
+    
+    public Photo find(Map<String, String> params) {
+        return find(this.id, params);
+    }
+    
+    public static Photo random(Map<String, String> params) {
+        final String data = INSTANCE.request(Verb.GET, "photos/random", params);
+        return GSON.fromJson(data, Photo.class);
+    }
+    
+    public static Photo random() {
+        return random(null);
+    }
+    
+    public PhotoStats stats() {
+        final String data = INSTANCE.request(Verb.GET, "photos/"
+                + this.id + "/stats");
+        return GSON.fromJson(data, PhotoStats.class);
     }
     
 }
