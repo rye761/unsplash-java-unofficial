@@ -8,12 +8,19 @@ public class Category {
     private static final Unsplash INSTANCE = Unsplash.getInstance();
     private static final Gson GSON = Unsplash.GSON;
     
-    public int id;
-    public String title;
-    @SerializedName("photo_count") public int photoCount;
-    public Link links;
+    public final int id;
+    public final String title;
+    @SerializedName("photo_count") public final int photoCount;
+    public final Link links;
 
-    public Category() {
+    public Category(int id,
+            String title,
+            int photoCount,
+            Link links) {
+        this.id = id;
+        this.title = title;
+        this.photoCount = photoCount;
+        this.links = links;
     }
 
     public static Category[] all() {

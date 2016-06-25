@@ -20,6 +20,26 @@ public class Photo {
     // TODO: add current user collections
     public Url urls;
     public Link links;
+
+    public Photo(String id,
+            String createdAt,
+            int width,
+            int height,
+            String color,
+            int likes,
+            boolean likedByUser,
+            Url urls,
+            Link links) {
+        this.id = id;
+        this.createdAt = createdAt;
+        this.width = width;
+        this.height = height;
+        this.color = color;
+        this.likes = likes;
+        this.likedByUser = likedByUser;
+        this.urls = urls;
+        this.links = links;
+    }
     
     public static Photo[] all(Map<String, String> params) {
         final String data = INSTANCE.request(Verb.GET, "photos", params);
