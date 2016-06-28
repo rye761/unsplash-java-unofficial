@@ -91,4 +91,12 @@ public class Photo {
         return GSON.fromJson(data, PhotoStats.class);
     }
     
+    public void like() {
+        INSTANCE.request(Verb.POST, "photos/" + this.id + "/like");
+    }
+    
+    public void unlike() {
+        INSTANCE.request(Verb.DELETE, "photos/" + this.id + "/like");
+    }
+    
 }
