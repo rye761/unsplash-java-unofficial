@@ -9,17 +9,18 @@ public class Photo {
     private static final Unsplash INSTANCE = Unsplash.getInstance();
     private static final Gson GSON = Unsplash.GSON;
     
-    public String id;
-    @SerializedName("created_at") public String createdAt;
-    public int width;
-    public int height;
-    public String color;
-    public int likes;
-    @SerializedName("liked_by_user") public boolean likedByUser;
-    public User user;
+    public final String id;
+    @SerializedName("created_at") public final String createdAt;
+    public final int width;
+    public final int height;
+    public final String color;
+    public final int likes;
+    @SerializedName("liked_by_user") public final boolean likedByUser;
+    public final Exif exif;
+    public final User user;
     // TODO: add current user collections
-    public Url urls;
-    public Link links;
+    public final Url urls;
+    public final Link links;
 
     public Photo(String id,
             String createdAt,
@@ -28,6 +29,8 @@ public class Photo {
             String color,
             int likes,
             boolean likedByUser,
+            Exif exif,
+            User user,
             Url urls,
             Link links) {
         this.id = id;
@@ -37,6 +40,8 @@ public class Photo {
         this.color = color;
         this.likes = likes;
         this.likedByUser = likedByUser;
+        this.exif = exif;
+        this.user = user;
         this.urls = urls;
         this.links = links;
     }
