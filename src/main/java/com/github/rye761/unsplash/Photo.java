@@ -16,7 +16,7 @@ public class Photo {
     public String color;
     public int likes;
     @SerializedName("liked_by_user") public boolean likedByUser;
-    // TODO: add user object
+    public User user;
     // TODO: add current user collections
     public Url urls;
     public Link links;
@@ -83,6 +83,11 @@ public class Photo {
     
     public static Photo random() {
         return random(null);
+    }
+    
+    public static Photo[] search(Map<String, String> params) {
+        final String data = INSTANCE.request(Verb.GET, "photos/search", params);
+        return GSON.fromJson(data, Photo[].class);
     }
     
     public PhotoStats stats() {
