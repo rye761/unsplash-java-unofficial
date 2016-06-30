@@ -24,6 +24,7 @@ If all went well, you should now have a jar file you can use in build/libs. If i
 As mentioned earlier, this wrapper is in rapid development but is not finished. Not all API methods are covered at this time. Here is the breakdown.
 
 API Endpoint | Covered?
+-------------|----------
 /me | Yes
 /me (PUT) | No
 /users/:username | Yes
