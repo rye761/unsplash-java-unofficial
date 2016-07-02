@@ -43,14 +43,14 @@ API Endpoint | Covered?
 /categories | Yes
 /categories/:id | Yes
 /categories/:id/photos | Yes
-/collections | No
-/collections/featured | No
-/collections/curated | No
-/collections/:id | No
-/collections/curated/:id | No
-/collections/:id/photos | No
-/collections/curated/:id/photos | No
-/collections/:id/related | No
+/collections | Yes
+/collections/featured | Yes
+/collections/curated | Yes
+/collections/:id | Yes
+/collections/curated/:id | Yes
+/collections/:id/photos | Yes
+/collections/curated/:id/photos | Yes
+/collections/:id/related | Yes
 /collections (POST) | No
 /collections/:id (PUT) | No
 /collections/:id (DELETE) | No

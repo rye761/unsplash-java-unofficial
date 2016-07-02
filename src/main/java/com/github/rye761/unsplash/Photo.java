@@ -18,7 +18,7 @@ public class Photo {
     @SerializedName("liked_by_user") public final boolean likedByUser;
     public final Exif exif;
     public final User user;
-    // TODO: add current user collections
+    @SerializedName("current_user_collections") public final Collection[] currentUserCollections;
     public final Url urls;
     public final Link links;
 
@@ -31,6 +31,7 @@ public class Photo {
             boolean likedByUser,
             Exif exif,
             User user,
+            Collection[] currentUserCollections,
             Url urls,
             Link links) {
         this.id = id;
@@ -42,6 +43,7 @@ public class Photo {
         this.likedByUser = likedByUser;
         this.exif = exif;
         this.user = user;
+        this.currentUserCollections = currentUserCollections;
         this.urls = urls;
         this.links = links;
     }
