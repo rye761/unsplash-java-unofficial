@@ -92,4 +92,14 @@ public class User {
     public Photo[] likes() {
         return likes(null);
     }
+    
+    public Collection[] collections(Map<String, String> params) {
+        final String data = INSTANCE.request(Verb.GET, "users/" + this.username
+                + "/likes");
+        return GSON.fromJson(data, Collection[].class);
+    }
+    
+    public Collection[] collections() {
+        return collections(null);
+    }
 }
