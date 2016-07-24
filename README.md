@@ -30,7 +30,7 @@ API Endpoint | Covered?
 /users/:username | Yes
 /users/:username/photos | Yes
 /users/:username/likes | Yes
-/users/:username/collections | No
+/users/:username/collections | Yes
 /photos | Yes
 /photos/curated | Yes
 /photos/search | Yes
