@@ -13,6 +13,5 @@ public class StatsTest {
         assertThat(stats, instanceOf(Stats.class));
         assertThat(stats.batchDownloads, instanceOf(int.class));
         assertThat(stats.photoDownloads, instanceOf(int.class));
-        System.out.println(stats.batchDownloads);
     }
 }
