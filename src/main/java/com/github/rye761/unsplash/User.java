@@ -95,7 +95,7 @@ public class User {
     
     public Collection[] collections(Map<String, String> params) {
         final String data = INSTANCE.request(Verb.GET, "users/" + this.username
-                + "/likes");
+                + "/collections");
         return GSON.fromJson(data, Collection[].class);
     }
     
