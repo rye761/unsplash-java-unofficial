@@ -51,7 +51,7 @@ API Endpoint | Covered?
 /collections/:id/photos | Yes
 /collections/curated/:id/photos | Yes
 /collections/:id/related | Yes
-/collections (POST) | No
+/collections (POST) | Yes
 /collections/:id (PUT) | No
 /collections/:id (DELETE) | No
 /collections/:id/add (POST) | No

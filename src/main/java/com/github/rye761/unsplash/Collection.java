@@ -3,6 +3,7 @@ package com.github.rye761.unsplash;
 import com.github.scribejava.core.model.Verb;
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
+import java.util.HashMap;
 import java.util.Map;
 
 public class Collection {
@@ -82,6 +83,21 @@ public class Collection {
     public static Collection findCurated(String id) {
         final String data = INSTANCE.request(Verb.GET, "collections/curated/" + id);
         return GSON.fromJson(data, Collection.class);
+    }
+    
+    public static Collection create(String title, String description, boolean isPrivate) {
+        final HashMap<String, String> params = new HashMap<>();
+        params.put("title", title);
+        if (description != null) {
+            params.put("description", description);
+        }
+        params.put("private", String.valueOf(isPrivate));
+        final String data = INSTANCE.request(Verb.POST, "collections", params);
+        return GSON.fromJson(data, Collection.class);
+    }
+    
+    public static Collection create(String title) {
+        return create(title, null, false);
     }
     
     public Photo[] photos(Map<String, String> params) {

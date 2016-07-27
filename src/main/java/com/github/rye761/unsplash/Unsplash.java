@@ -19,6 +19,7 @@ public final class Unsplash {
     private String callback;
     private OAuth20Service service;
     private OAuth2AccessToken token;
+    private boolean debug;
 
     private Unsplash() {
 
@@ -31,10 +32,11 @@ public final class Unsplash {
         return INSTANCE;
     }
 
-    public void init(Map<String, String> config) {
+    public void init(Map<String, String> config, boolean debug) {
         clientId = config.get("applicationId");
         apiSecret = config.get("secret");
         callback = config.get("callbackUrl");
+        this.debug = debug;
         final String accessToken = config.get("accessToken");
         if (accessToken != null) {
             token = new OAuth2AccessToken(accessToken);
@@ -45,6 +47,10 @@ public final class Unsplash {
                     .apiSecret(apiSecret)
                     .callback(callback)
                     .build(UnsplashApi.instance());
+    }
+    
+    public void init(Map<String, String> config) {
+        init(config, false);
     }
     
     public String getAuthorizationUrl(String[] scopes) {
@@ -94,7 +100,7 @@ public final class Unsplash {
                 builder.append("&");
                 builder.append(entry.getKey());
                 builder.append("=");
-                builder.append(entry.getValue());
+                builder.append(OAuthEncoder.encode(entry.getValue()));
             }
         }
         return builder.toString();
@@ -110,6 +116,9 @@ public final class Unsplash {
         }
 
         try {
+            if (debug) {
+                System.out.println("Sending request with URL: " + url);
+            }
             return req.send().getBody();
         } catch (IOException e) {
             e.printStackTrace();
