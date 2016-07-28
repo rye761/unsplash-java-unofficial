@@ -53,7 +53,7 @@ API Endpoint | Covered?
 /collections/:id/related | Yes
 /collections (POST) | Yes
 /collections/:id (PUT) | No
-/collections/:id (DELETE) | No
+/collections/:id (DELETE) | Yes
 /collections/:id/add (POST) | No
 /collections/:id/remove (DELETE) | No
 /stats/total | Yes

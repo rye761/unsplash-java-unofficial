@@ -100,6 +100,10 @@ public class Collection {
         return create(title, null, false);
     }
     
+    public void delete() {
+        INSTANCE.request(Verb.DELETE, "collections/" + this.id);
+    }
+    
     public Photo[] photos(Map<String, String> params) {
         final String urlPrefix = this.curated ? "collections/curated/" : "collections/";
         final String data = INSTANCE.request(Verb.GET, urlPrefix + this.id + "/photos");
