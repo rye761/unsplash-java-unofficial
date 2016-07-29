@@ -104,6 +104,16 @@ public class Collection {
         INSTANCE.request(Verb.DELETE, "collections/" + this.id);
     }
     
+    public void add(String photoId) {
+        final HashMap<String, String> params = new HashMap<>();
+        params.put("photo_id", photoId);
+        INSTANCE.request(Verb.POST, "collections/" + this.id + "/add", params);
+    }
+    
+    public void add(Photo photo) {
+        add(photo.id);
+    }
+    
     public Photo[] photos(Map<String, String> params) {
         final String urlPrefix = this.curated ? "collections/curated/" : "collections/";
         final String data = INSTANCE.request(Verb.GET, urlPrefix + this.id + "/photos");
