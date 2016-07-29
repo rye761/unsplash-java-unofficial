@@ -55,5 +55,5 @@ API Endpoint | Covered?
 /collections/:id (PUT) | No
 /collections/:id (DELETE) | Yes
 /collections/:id/add (POST) | Yes
-/collections/:id/remove (DELETE) | No
+/collections/:id/remove (DELETE) | Yes
 /stats/total | Yes
